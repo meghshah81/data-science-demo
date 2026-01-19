@@ -1,4 +1,5 @@
 connection: "66-data-science-demo"
+include: "/views/customer_summary.view.lkml"
 
 include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/*.view.lkml"                 # include all views in this project
