@@ -1,6 +1,10 @@
 view: customer_summary {
-  sql_table_name: `data-science-66d-demos.hsbc.customer_summary` ;;
-
+  derived_table:
+  {
+    sql:  SELECT * FROM
+    `data-science-66d-demos.hsbc.customer_summary`
+    QUALIFY ROW_NUMBER() OVER(PARTITION BY customer_id order by created_at desc)=1;;
+  }
   dimension_group: created {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
